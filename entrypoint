@@ -1,0 +1,15 @@
+#!/bin/sh
+# Entrypoint for lonni-alpine
+CFG=/usr/local/etc/haproxy/haproxy.cfg
+
+# Install the haproxy config
+cp /haproxy ${CFG}
+chmod 777 ${CFG}
+
+# Install the cert to /usr/local/etc/ssl/..
+cp /run/secrets/cert /usr/local/etc/ssl/server.pem
+chmod 444 /usr/local/etc/ssl/server.pem
+
+# Start the proxy
+haproxy -f ${CFG}
+

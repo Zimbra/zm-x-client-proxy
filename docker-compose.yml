@@ -1,0 +1,28 @@
+version: "3.3"
+
+services:
+  haproxy:
+    image: zimbra/haproxy:20180320_1600
+    build:
+      context: '.'
+      dockerfile: 'Dockerfile'
+    configs:
+      - haproxy 
+    secrets:
+      - cert
+    entrypoint:
+      - /entrypoint
+    ports:
+      - "80:80"
+      - "443:443"
+
+configs:
+  haproxy:
+    file: ./haproxy.cfg
+
+secrets:
+  cert:
+    file: ./server.pem
+
+
+
