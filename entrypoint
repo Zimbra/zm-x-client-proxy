@@ -16,3 +16,6 @@ rsyslogd
 echo "Start haproxy..."
 haproxy -f ${CFG}
 
+sleep 2
+echo "SETUP COMPLETE"
+tail -f /var/log/messages
