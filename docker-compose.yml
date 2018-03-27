@@ -2,12 +2,14 @@ version: "3.3"
 
 services:
   haproxy:
-    image: zimbra/haproxy:20180320_1600
+    image: zimbra/haproxy:20180327_1654
     build:
       context: '.'
       dockerfile: 'Dockerfile'
     configs:
-      - haproxy 
+      - haproxy
+      - ui_server
+      - zimbra_server
     secrets:
       - cert
     entrypoint:
@@ -19,10 +21,11 @@ services:
 configs:
   haproxy:
     file: ./haproxy.cfg
+  zimbra_server:
+    file: ./zimbra_server.cfg
+  ui_server:
+    file: ./ui_server.cfg
 
 secrets:
   cert:
     file: ./server.pem
-
-
-

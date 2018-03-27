@@ -1,9 +1,11 @@
 #!/bin/sh
 # Entrypoint for lonni-alpine
 CFG=/usr/local/etc/haproxy/haproxy.cfg
+UI_SERVER=`cat /ui_server`
+ZIMBRA_SERVER=`cat /zimbra_server`
 
 echo "Install the haproxy config..."
-cp /haproxy ${CFG}
+cat /haproxy | sed -e "s/API_SERVER/$ZIMBRA_SERVER/g" -e "s/UI_SERVER/$UI_SERVER/g" > ${CFG}
 chmod 777 ${CFG}
 
 echo "Install the cert to /usr/local/etc/ssl/server.pem.."

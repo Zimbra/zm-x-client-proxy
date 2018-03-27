@@ -2,6 +2,12 @@
 
 Lightweight service for serving the Zimbra NextGen app.
 
+Required config files:
+
+ - zimbra_server.cfg - hostname/ip address of the Zimbra SOAP server
+ - ui_server.cfg - hostname/ip address of the UI server
+ - server.pem - SSL certificate
+
 ## Proxy Rules
 
 1. /beta.lonni.com -> lonni.netlify.com
