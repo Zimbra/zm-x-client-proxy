@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   haproxy:
-    image: zimbra/haproxy:20180327_1654
+    image: zimbra/haproxy:20180327_1715
     build:
       context: '.'
       dockerfile: 'Dockerfile'
