@@ -12,6 +12,8 @@ clean: down
 	@rm -f ui_server.cfg
 	@rm -f zimbra_server.cfg
 	@rm -f server.pem
+	@rm -f zm-x-client-proxy.*
+	@rm -f key.pem
 
 down:
 	@docker-compose down
