@@ -26,6 +26,13 @@ They will be used during runtime to substitute in for the relevant location in t
   
 It will also generate a self-signed SSL certificate (assuming openssl is available) named *server.pem*.
 
+Once the files have been edited to have the appropriate values within you can start the proxy.
+
+    make build
+    make up
+    
+If you wish to stop the proxy run the `make down` command from within the `zm-x-client-proxy` directory.
+
 
 ## Proxy Rules
 
