@@ -3,7 +3,7 @@ DOCKER_STACK_NAME ?= zm-docker
 all: setup build
 
 build:
-	@docker-compose build -t zm-x-client-proxy .b
+	@docker-compose build
 
 .PHONY: clean
 
@@ -28,7 +28,7 @@ up: .up.lock
 	docker stack deploy -c docker-compose.yml '${DOCKER_STACK_NAME}'	
 	touch .up.lock
 
-.ssl-certificate: server.pem
+.ssl-certificate: 
 	@echo "Generating self-signed SSL development certificate"
 	openssl req -new -newkey rsa:4096 -days 365 -nodes -x509 \
 	    -subj "/C=US/ST=NY/L=Buffalo/O=Synacor/CN=zm-x-client-proxy.local" \
