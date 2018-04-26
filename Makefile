@@ -1,4 +1,4 @@
-DOCKER_STACK_NAME ?= zm-docker
+DOCKER_STACK_NAME ?= zm-docker-proxy
 
 all: setup build
 
@@ -16,7 +16,7 @@ clean: down
 	@rm -f key.pem
 
 down:
-	@docker-compose down
+	docker stack rm '${DOCKER_STACK_NAME}'
 	@rm -f .up.lock
 
 logs: up
