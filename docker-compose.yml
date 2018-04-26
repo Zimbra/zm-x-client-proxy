@@ -2,7 +2,7 @@ version: "3.3"
 
 services:
   haproxy:
-    image: zimbra/zm-x-client-proxy:20180403_1530
+    image: zimbra/zm-x-client-proxy:20180426_1712
     build:
       context: '.'
       dockerfile: 'Dockerfile'
@@ -10,6 +10,8 @@ services:
       - haproxy
       - ui_server
       - zimbra_server
+    networks:
+      zm-docker_default: {}
     secrets:
       - cert
     entrypoint:
@@ -29,3 +31,7 @@ configs:
 secrets:
   cert:
     file: ./server.pem
+
+networks:
+  zm-docker_default:
+    external: true
