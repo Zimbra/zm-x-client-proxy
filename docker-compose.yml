@@ -17,6 +17,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
+    networks:
+    - zm-docker_default
 
 configs:
   haproxy:
@@ -29,3 +31,7 @@ configs:
 secrets:
   cert:
     file: ./server.pem
+
+networks:
+  zm-docker_default:
+    external: true
